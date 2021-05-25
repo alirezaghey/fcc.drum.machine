@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Keypad from "./components/keypad/Keypad";
+import { useState } from "react";
 
 function App() {
+  const [display, setDisplay] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div id="drum-machine" className=" w-80 m-auto flex">
+        <div className="w-3/5 ">
+          <Keypad className="one" setDisplay={setDisplay} />
+        </div>
+        <div id="display" className="w-1/4 m-auto p-2 text-center rounded-md">
+          {display}
+        </div>
+      </div>
     </div>
   );
 }
